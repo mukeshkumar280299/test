@@ -1,2 +1,44 @@
 This is my first repo document...
 This is second line for test and commit also..we are moving ahead..
+
+working in the test-branch-2
+
+Step 1: Authenticate Yourself and Your Machine
+Now that you have your Github account created, the first step is to connect your machine to your Github account through an SSH key. With an SSH key, Github is able to authenticate you automatically every time you try to manipulate your repository without the need to provide your username or password, which is super convenient.
+
+
+To create an SSH key, simply follow the steps outlined below:
+
+1. Launch Git Bash.
+
+2. Type the following, replacing <your email address> with the email address that is linked to your Github account, and hit Enter:
+
+ssh-keygen -t rsa -b 4096 -C "<your email address>"
+This will generate a new SSH key.
+
+3. Next, you will be prompted to enter a directory to save the key. I simply press Enter to accept the default location, which is a .ssh folder in the home directory. In other words, you will be able to locate the key in “~/.ssh/id_rsa”.
+
+4. You will then be prompted to choose a passphrase. I prefer not to have a passphrase; so just press Enter and Enter again to confirm the empty passphrase.
+
+
+And then add the key to the agent by running the following in the Git Bash terminal:
+
+      ssh-add ~/.ssh/id_rsa
+
+Step 2: Add the Key to Your Github Account
+
+The next step is to add the SSH key to your Github account. The first thing to do, is to run the following in the Git Bash terminal:
+
+      cat ~/.ssh/id_rsa.pub | clip
+
+What this does is it copies the public version of your key to the clipboard buffer.
+
+Then, go to your Github account, and click your profile pic in the top right corner of your Github account and select “Settings” from the drop-down menu
+Under Personal settings, select “SSH and GPG keys”
+
+On the next page, click the button to add a new SSH key to your account
+This will start a new form where you will have to add the key and give it a name as well.
+For the title, you give the key a name that describes the machine associated with it. So, if it is your personal computer, then you can name it “Personal-Computer”
+Then, select the Key field, and press Ctrl-v to paste the key from the clipboard buffer. The pasted key should have your email address at the end
+
+Finally, click the “Add SSH key” to complete the process of adding the SSH key to your Github account.
